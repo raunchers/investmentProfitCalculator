@@ -31,7 +31,6 @@ class Results{
 }
 
 // onSubmit gathers the entered data by the user and parses them as a float
-// Will be passed to calculateProfits for calculations
 function onSubimt(){
 
     // Grab the total amount of asset being sold
@@ -98,27 +97,6 @@ function calculateProfits(totalAssetAmnt, percentAmnt, priceChange, startPrice, 
 
         // Increment the selling price
         sellPrice += priceChange
-    }
-    
-    // loop through the array of objects and update the spreadsheet
-    for(const result of resultsArr){
-        /* // remaining balance
-        document.getElementById("remainingBalance").innerHTML = result.remainingBalance
-
-        // Sell percentage
-        document.getElementById("sellPercent").innerHTML = result.sellPrecent
-
-        // Amount of asset to sell
-        document.getElementById("assetToSell").innerHTML = result.totalAssetToBeSold
-
-        // Selling Price
-        document.getElementById("sellPrice").innerHTML = result.sellPrice
-
-        // Current sell gross profits
-        document.getElementById("priceProfits").innerHTML = result.grossProfit
-
-        // Total gross profits
-        document.getElementById("totalProfits").innerHTML = result.totalGrossProfits */
     }
 
     let table = document.querySelector("table")
