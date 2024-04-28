@@ -100,7 +100,7 @@ function calculateProfits(totalAssetAmnt, percentAmnt, priceChange, startPrice, 
         sellPrice += priceChange
     }
     
-    // loop through the array of objects and 
+    // loop through the array of objects and update the spreadsheet
     for(const result of resultsArr){
         /* // remaining balance
         document.getElementById("remainingBalance").innerHTML = result.remainingBalance
@@ -121,9 +121,8 @@ function calculateProfits(totalAssetAmnt, percentAmnt, priceChange, startPrice, 
         document.getElementById("totalProfits").innerHTML = result.totalGrossProfits */
     }
 
-    // NEED TO CREATE NEW TABLE ROWS WITH TABLE DATA FOR EACH CALCULATION IN THE RESULTS ARRAY
     let table = document.querySelector("table")
-    generateTableHead(table)
+    generateTableHead(table, resultsArr)
 
     console.log(resultsArr)
 }
@@ -133,7 +132,8 @@ function clearPage(){
     location.reload()
 }
 
-function generateTableHead(table){
+// generateTableHead generates the table headers after the user clicks submit on the form
+function generateTableHead(table, arr){
     // Will hold the table header text needed to create the theads
     let theadEntries = ["Remaining Asset Balance", "Precent To Sell", "Asset Amount To Sell", "Selling Price", "Profits At Price Point", "Total Profits"]
 
@@ -145,5 +145,20 @@ function generateTableHead(table){
         let text = document.createTextNode(entry)
         th.appendChild(text)
         row.appendChild(th)
+    }
+
+    generateTable(table, arr)
+}
+
+// generateTable generates the table data. Will create a new row for each object in the array
+function generateTable(table, arr){
+
+    for(let object of arr){
+        let row = table.insertRow()
+        for(key in object){
+            let cell = row.insertCell()
+            let text = document.createTextNode(object[key])
+            cell.appendChild(text)
+        }
     }
 }
