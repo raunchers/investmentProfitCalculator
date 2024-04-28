@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="globals.css">
+    <title>Gross Profit Calculator</title>
+</head>
+<body>
+    <div class="formContainer">
+        <div class="spacer"></div>
+        <div class="formBody"> <!-- Start of Form -->
+            <h1>Gross Profit Calculator</h1>
+            <div class="inputForm">
+                <!-- Total amount to be sold -->
+                <input type="text" 
+                       id="totalAssetAmnt"
+                       placeholder="Total Asset Amount"
+                       autocomplete="off"
+                />
+                <!-- The % of the total amount to be sold -->
+                <input  type="text"
+                      id="percentAmnt"
+                      placeholder="Percent of asset to be sold"
+                      autoComplete="off"
+                />
+                <!-- Price increment. Rate at which price will change  -->
+                <input type="text"
+                     id="priceChange"
+                     placeholder="Price increment"
+                     autoComplete="off"
+                />
+                <!-- starting price to be sold at -->
+                <input  type="text"
+                      id="startPrice"
+                      placeholder="Starting sell price"
+                      autoComplete="off"
+                />
+                <!-- ending price prediction -->
+                <input  type="text"
+                      id="endPrice"
+                      placeholder="Ending sell price"
+                      autoComplete="off"
+                />
+                <button type="submit" onClick=onSubimt()>
+                  Submit
+                </button>
+                <button type="submit" onClick=clearPage()>
+                  Clear Page
+                </button>
+            </div>
+        </div> <!-- End of Form -->
+        <div class="spacer"></div>
+    </div>
+    <div class="container">
+        <div class="spacer"></div>
+        <h1>Results Spreadsheet</h1>
+        <div class="spacer"></div>
+    </div>
+    <div class="container">
+        <div class="spacer"></div>
+        <div class="spreadsheet">
+            <!-- Display calculated information -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Remaining Asset Balance</th>
+                        <th>Precent To Sell</th>
+                        <th>Asset Amount To Sell</th>
+                        <th>Selling Price</th>
+                        <th>Profits At Price Point</th>
+                        <th>Total Profits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="remainingBalance"></td>
+                        <td id="sellPercent"></td>
+                        <td id="assetToSell"></td>
+                        <td id="sellPrice"></td>
+                        <td id="priceProfits"></td>
+                        <td id="totalProfits"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="spacer"></div>
+    </div>
+
+    <script src="source.js"></script>
+</body>
+</html>
