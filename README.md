@@ -1,8 +1,7 @@
 # investmentProfitCalculator
 
-The app will calculate calculate the profits made at each selling point.
-I.E: If you want to sell 10% of your assets from $1 to 5$, the app will show the 
-gross profit for each price point. 
+The app will calculate calculate the profits made at each selling point.  
+I.E: If you want to sell 10% of your assets from 1 dollar to 5 dollars, the app will show the gross profit for each price point.  
 
 The user will enter the following info:  
 1. Total starting asset amount to be sold.  
