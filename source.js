@@ -14,15 +14,17 @@ class Results{
     // Sell Price
     sellPrice
     // Gross Profits
-    grossProfit
+    currentGrossProfit
+    // Total gross profits
+    totalGrossProfits
 
     // Constructor
-    constructor(remainingBalance, sellPrecent, totalAssetToBeSold, sellPrice, grossProfit, totalGrossProfits){
+    constructor(remainingBalance, sellPrecent, totalAssetToBeSold, sellPrice, currentGrossProfit, totalGrossProfits){
         this.remainingBalance = remainingBalance.toFixed(2)
         this.sellPrecent = sellPrecent.toFixed(2) + "%"
         this.totalAssetToBeSold = totalAssetToBeSold.toFixed(2)
         this.sellPrice = "$" + sellPrice.toFixed(2)
-        this.grossProfit = "$" + grossProfit.toFixed(2)
+        this.currentGrossProfit = "$" + currentGrossProfit.toFixed(2)
         this.totalGrossProfits = "$" + totalGrossProfits.toFixed(2)
     }
 
@@ -100,7 +102,7 @@ function calculateProfits(totalAssetAmnt, percentAmnt, priceChange, startPrice, 
     
     // loop through the array of objects and 
     for(const result of resultsArr){
-        // remaining balance
+        /* // remaining balance
         document.getElementById("remainingBalance").innerHTML = result.remainingBalance
 
         // Sell percentage
@@ -116,15 +118,32 @@ function calculateProfits(totalAssetAmnt, percentAmnt, priceChange, startPrice, 
         document.getElementById("priceProfits").innerHTML = result.grossProfit
 
         // Total gross profits
-        document.getElementById("totalProfits").innerHTML = result.totalGrossProfits
+        document.getElementById("totalProfits").innerHTML = result.totalGrossProfits */
     }
 
-    console.log(resultsArr)
-
     // NEED TO CREATE NEW TABLE ROWS WITH TABLE DATA FOR EACH CALCULATION IN THE RESULTS ARRAY
+    let table = document.querySelector("table")
+    generateTableHead(table)
+
+    console.log(resultsArr)
 }
 
 // clearPage will reload the current page
 function clearPage(){
     location.reload()
+}
+
+function generateTableHead(table){
+    // Will hold the table header text needed to create the theads
+    let theadEntries = ["Remaining Asset Balance", "Precent To Sell", "Asset Amount To Sell", "Selling Price", "Profits At Price Point", "Total Profits"]
+
+    let thead = table.createTHead()
+    let row = thead.insertRow()
+
+    for (let entry of theadEntries){
+        let th = document.createElement("th")
+        let text = document.createTextNode(entry)
+        th.appendChild(text)
+        row.appendChild(th)
+    }
 }
